@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{69c18815-53a1-4509-9077-5ddfb84d248f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\01.Header">
+      <UniqueIdentifier>{f81d59da-1c5d-475f-a78a-5d4b9a72ef93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\02.Core">
+      <UniqueIdentifier>{cee09d49-a936-4734-b1bf-980fa7493968}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03.Manger">
+      <UniqueIdentifier>{82055b03-1ae5-4787-acc5-4242d8708a42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Default">
+      <UniqueIdentifier>{393cee27-ed53-457a-9e05-590c2d1d3108}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Default\리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Engine\04.Object">
+      <UniqueIdentifier>{9723ad18-b2dd-4ac6-b362-dcbd4b71f820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03.Manger\KeyManager">
+      <UniqueIdentifier>{bfe37d53-7081-4f16-b2b8-1de7e686aee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03.Manger\CTimeManager">
+      <UniqueIdentifier>{d6a7ed33-9532-4c67-add9-39f169744cf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\05.Scene">
+      <UniqueIdentifier>{45e59f3e-ed05-4bdb-8230-ddefae3d21a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03.Manger\SceneManager">
+      <UniqueIdentifier>{7ee47b08-60d5-4ae9-9c87-59a579178edb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\05.Scene\Scene_Start">
+      <UniqueIdentifier>{6e090713-156a-412f-93ec-f29a4d3fffb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\05.Scene\Scene_Tool">
+      <UniqueIdentifier>{fb9631b3-ae15-4178-8a16-9b1c51429ce2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04.Object\Player">
+      <UniqueIdentifier>{d85fde0f-6dc0-48cb-92e2-ea3a03b09790}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04.Object\Monster">
+      <UniqueIdentifier>{bebd6daa-5a1f-40fd-8454-20a9feb734c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04.Object\Missile">
+      <UniqueIdentifier>{96a9d8fa-a419-4488-9500-d54b753e32c0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="define.h">
+      <Filter>Engine\01.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CCore.h">
+      <Filter>Engine\02.Core</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="CObject.h">
+      <Filter>Engine\04.Object</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>Engine\01.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CTimeManager.h">
+      <Filter>Engine\03.Manger\CTimeManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CKeyManager.h">
+      <Filter>Engine\03.Manger\KeyManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CScene.h">
+      <Filter>Engine\05.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CSceneManager.h">
+      <Filter>Engine\03.Manger\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CScene_Start.h">
+      <Filter>Engine\05.Scene\Scene_Start</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayer.h">
+      <Filter>Engine\04.Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonster.h">
+      <Filter>Engine\04.Object\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="CMissile.h">
+      <Filter>Engine\04.Object\Missile</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BJKGameEngine.rc">
+      <Filter>Default\리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>Default\리소스 파일</Filter>
+    </Image>
+    <Image Include="BJKGameEngine.ico">
+      <Filter>Default\리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CCore.cpp">
+      <Filter>Engine\02.Core</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Default</Filter>
+    </ClCompile>
+    <ClCompile Include="CObject.cpp">
+      <Filter>Engine\04.Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CTimeManager.cpp">
+      <Filter>Engine\03.Manger\CTimeManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CKeyManager.cpp">
+      <Filter>Engine\03.Manger\KeyManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene.cpp">
+      <Filter>Engine\05.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneManager.cpp">
+      <Filter>Engine\03.Manger\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene_Start.cpp">
+      <Filter>Engine\05.Scene\Scene_Start</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayer.cpp">
+      <Filter>Engine\04.Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonster.cpp">
+      <Filter>Engine\04.Object\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="CMissile.cpp">
+      <Filter>Engine\04.Object\Missile</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
