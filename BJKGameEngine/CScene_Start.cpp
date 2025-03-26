@@ -47,6 +47,7 @@ void CScene_Start::Enter()
 		pMonsterObj->SetScale(FVector2D(ObjectScale, ObjectScale));
 		AddObject(pMonsterObj, GROUP_TYPE::DEFAULT);
 	}
+
 }
 
 void CScene_Start::Exit()

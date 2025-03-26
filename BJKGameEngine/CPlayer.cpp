@@ -7,25 +7,19 @@
 #include "CSceneManager.h"
 #include "CTexture.h"
 #include "CPathManager.h"
+#include "CResourceManager.h"
 
 CPlayer::CPlayer()
 	: m_pTexture(nullptr)
 {
 	// Texture 로딩하기
-	m_pTexture = new CTexture;
-
-	wstring strFilePath = CPathManager::GetInst()->GetContentPath();
-	strFilePath += L"texture\\Plane.bmp";
-	m_pTexture->Load(strFilePath);
+	m_pTexture = CResourceManager::GetInst()->LoadTexture(L"PlayerTexture", L"texture\\Plane.bmp");
 
 }
 
 CPlayer::~CPlayer()
 {
-	if (nullptr != m_pTexture)
-	{
-		delete m_pTexture;
-	}
+	
 }
 
 void CPlayer::update()

@@ -130,6 +130,9 @@
     <ClInclude Include="CPathManager.h">
       <Filter>Engine\03.Manger\PathManager</Filter>
     </ClInclude>
+    <ClInclude Include="CResourceManager.h">
+      <Filter>Engine\03.Manger\ResourceManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BJKGameEngine.rc">
@@ -189,6 +192,9 @@
     </ClCompile>
     <ClCompile Include="CPathManager.cpp">
       <Filter>Engine\03.Manger\PathManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CResourceManager.cpp">
+      <Filter>Engine\03.Manger\ResourceManager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

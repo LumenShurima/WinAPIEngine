@@ -17,5 +17,10 @@ using std::vector;
 using std::string;
 using std::wstring;
 
+
+#include <map>
+using std::map;
+using std::make_pair;
+
 #include "define.h"
 #include "struct.h"

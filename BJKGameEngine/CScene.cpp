@@ -34,7 +34,7 @@ CScene::~CScene()
 {
 	for (UINT i = 0; i < (UINT)GROUP_TYPE::END; ++i)
 	{
-		for (size_t j = 0; m_Objects[i].size(); ++i)
+		for (size_t j = 0; j < m_Objects[i].size(); ++j)
 		{
 			// 오브젝트 배열의 그룹 벡터의 j물체 삭제;
 			delete m_Objects[i][j];

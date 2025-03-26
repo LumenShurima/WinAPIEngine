@@ -32,8 +32,8 @@ void CPathManager::init()
 		}
 	}
 
-	wcscat_s(m_szContentPath, 255, L"\\Binaray\\content\\");
-	// + bin\\content\\
+	wcscat_s(m_szContentPath, 255, L"\\binary\\content\\");
+	// + binary\\content\\
 
 	
 	// SetWindowText(CCore::GetInst()->GetMainHwnd(), m_szContentPath);
