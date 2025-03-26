@@ -6,6 +6,9 @@
 
 #include "CCore.h"
 
+#include "CTexture.h"
+#include "CPathManager.h"
+
 CScene_Start::CScene_Start()
 {
 }
@@ -16,6 +19,8 @@ CScene_Start::~CScene_Start()
 
 void CScene_Start::Enter()
 {
+
+
 	// Object Ãß°¡
 	CObject* pObj = new CPlayer;
 	pObj->SetPos(FVector2D(640.f,384.f));

@@ -20,6 +20,7 @@ private:
 public:
 	void init();
 	void update();
+	void render();
 
 
 public:

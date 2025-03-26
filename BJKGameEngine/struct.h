@@ -6,6 +6,25 @@ struct FVector2D
 	float x;
 	float y;
 
+
+
+public:
+	float Length()
+	{
+		return sqrt(x * x + y * y);
+	}
+
+	FVector2D& Normalize()
+	{
+		float Len = Length();
+
+		assert(Len != 0.f);
+
+		x /= Len;
+		y /= Len;
+
+		return *this;
+	}
 public:
 	FVector2D& operator = (POINT _pt)
 	{

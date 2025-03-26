@@ -4,9 +4,9 @@
 #include "CTimeManager.h"
 #include "CKeyManager.h"
 #include "CSceneManager.h"
+#include "CPathManager.h"
 
 
-#include "CObject.h"
 
 
 
@@ -50,10 +50,10 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 	DeleteObject(hOldBit);
 
 	// Manager ÃÊ±âÈ­
+	CPathManager::GetInst()->init();
 	CTimeManager::GetInst()->init();
 	CKeyManager::GetInst()->init();
 	CSceneManager::GetInst()->init();
-
 
 	return S_OK;
 }
@@ -73,6 +73,7 @@ void CCore::progress()
 	
 	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y
 		, m_memDC, 0, 0, SRCCOPY);
+	CTimeManager::GetInst()->render();
 }
 
 

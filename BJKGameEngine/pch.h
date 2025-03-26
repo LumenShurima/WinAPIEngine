@@ -5,7 +5,9 @@
 #include <Windows.h>
 #include <wchar.h>
 #include <math.h>
+#include <assert.h>
 
+#pragma comment(lib, "Msimg32.lib")
 
 
 #include <vector>

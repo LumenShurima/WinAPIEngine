@@ -5,6 +5,28 @@
 #include "CMissile.h"
 #include "CScene.h"
 #include "CSceneManager.h"
+#include "CTexture.h"
+#include "CPathManager.h"
+
+CPlayer::CPlayer()
+	: m_pTexture(nullptr)
+{
+	// Texture 로딩하기
+	m_pTexture = new CTexture;
+
+	wstring strFilePath = CPathManager::GetInst()->GetContentPath();
+	strFilePath += L"texture\\Plane.bmp";
+	m_pTexture->Load(strFilePath);
+
+}
+
+CPlayer::~CPlayer()
+{
+	if (nullptr != m_pTexture)
+	{
+		delete m_pTexture;
+	}
+}
 
 void CPlayer::update()
 {
@@ -34,6 +56,30 @@ void CPlayer::update()
 	SetPos(Pos);
 }
 
+void CPlayer::render(HDC _dc)
+{
+	int Width = (int)m_pTexture->Width();
+	int Height = (int)m_pTexture->Height();
+	// 188 x 268
+	
+	FVector2D Pos = GetPos();
+
+	/*BitBlt(_dc
+		, int(Pos.x - (float)(Width / 2))
+		, int(Pos.y - (float)(Height / 2))
+		, Width, Height
+		, m_pTexture->GetDC()
+		, 0,0 ,SRCCOPY);*/
+
+	TransparentBlt(_dc
+		, int(Pos.x - (float)(Width / 2))
+		, int(Pos.y - (float)(Height / 2))
+		, Width, Height
+		, m_pTexture->GetDC()
+		, 0, 0, Width, Height
+		, RGB(255,0,255));
+}
+
 void CPlayer::CreateMissile()
 {
 	FVector2D MissilePos = GetPos();
@@ -43,6 +89,7 @@ void CPlayer::CreateMissile()
 
 	pMissile->SetPos(MissilePos);
 	pMissile->SetScale(FVector2D(25.f, 25.f));
+	pMissile->SetDir(FVector2D(0.f, -1.f));
 
 	CScene* pCurScene = CSceneManager::GetInst()->GetCurrentScene();
 	pCurScene->AddObject(pMissile);

@@ -65,7 +65,7 @@ void CKeyManager::init()
 void CKeyManager::update()
 {
 	// 윈도우 포커싱 알아내기
-	// HWND hMainWnd = CCore::GetInst()->getMainHwnd();
+	// HWND hMainWnd = CCore::GetInst()->GetMainHwnd();
 	HWND hWnd = GetFocus();
 
 	// 윈도우 포커싱 중일 때 키 이벤트 동작

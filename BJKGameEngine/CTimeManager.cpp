@@ -40,6 +40,11 @@ void CTimeManager::update()
 	
 	m_llPrevCount = m_llCurCount;
 
+	
+}
+
+void CTimeManager::render()
+{
 	++m_CallCount;
 
 	m_Accumulator += m_deltaTime;
@@ -52,6 +57,6 @@ void CTimeManager::update()
 
 		WCHAR szBuffer[255] = {};
 		swprintf_s(szBuffer, L"FPS : %d, DeltaTime : %f", m_FPS, m_deltaTime);
-		SetWindowText(CCore::GetInst()->getMainHwnd(), szBuffer);
+		SetWindowText(CCore::GetInst()->GetMainHwnd(), szBuffer);
 	}
 }
