@@ -7,6 +7,7 @@ CMissile::CMissile()
 	, m_Dir(FVector2D(1.f, 1.f))
 {
 	m_Dir.Normalize();
+	CreateCollider();
 }
 
 CMissile::~CMissile()

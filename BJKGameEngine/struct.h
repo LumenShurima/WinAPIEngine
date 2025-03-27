@@ -11,7 +11,7 @@ struct FVector2D
 public:
 	float Length()
 	{
-		return sqrt(x * x + y * y);
+		return sqrtf(x * x + y * y);
 	}
 
 	FVector2D& Normalize()
@@ -31,7 +31,23 @@ public:
 		x = (float)_pt.x;
 		y = (float)_pt.y;
 	}
-
+	FVector2D operator + (FVector2D _other)
+	{
+		return FVector2D(x + _other.x, y + _other.y);
+	}
+	FVector2D operator - (FVector2D _other)
+	{
+		return FVector2D(x - _other.x, y - _other.y);
+	}
+	FVector2D operator * (FVector2D _other)
+	{
+		return FVector2D(x * _other.x, y * _other.y);
+	}
+	FVector2D operator / (FVector2D _other)
+	{
+		assert(!(0.f == _other.x || 0.f == _other.y));
+		return FVector2D(x / _other.x, y / _other.y);
+	}
 
 public:
 	FVector2D()

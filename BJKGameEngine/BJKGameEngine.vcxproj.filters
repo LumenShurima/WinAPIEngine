@@ -65,6 +65,15 @@
     <Filter Include="Engine\03.Manger\ResourceManager">
       <UniqueIdentifier>{2ba5ef31-ca4d-4495-9ceb-de8a4699950a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\07.Component">
+      <UniqueIdentifier>{b2318748-e1ff-4cc5-a41f-44c60911e6f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\08. Module">
+      <UniqueIdentifier>{58b1ddff-808f-468f-9f4a-cce098ecf270}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03.Manger\CollisionManager">
+      <UniqueIdentifier>{85198d05-ebab-4cf7-9aa3-8168280eaddf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="define.h">
@@ -133,6 +142,13 @@
     <ClInclude Include="CResourceManager.h">
       <Filter>Engine\03.Manger\ResourceManager</Filter>
     </ClInclude>
+    <ClInclude Include="CCollider.h">
+      <Filter>Engine\07.Component</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectGDI.h">
+      <Filter>Engine\08. Module</Filter>
+    </ClInclude>
+    <ClInclude Include="CCollisionManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BJKGameEngine.rc">
@@ -196,5 +212,12 @@
     <ClCompile Include="CResourceManager.cpp">
       <Filter>Engine\03.Manger\ResourceManager</Filter>
     </ClCompile>
+    <ClCompile Include="CCollider.cpp">
+      <Filter>Engine\07.Component</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectGDI.cpp">
+      <Filter>Engine\08. Module</Filter>
+    </ClCompile>
+    <ClCompile Include="CCollisionManager.cpp" />
   </ItemGroup>
 </Project>

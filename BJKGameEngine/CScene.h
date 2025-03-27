@@ -18,6 +18,7 @@ public:
 
 
 	void update();
+	void finalupdate();
 	void render(HDC _dc);
 
 	virtual void Enter() = 0;	// 해당 Scene에 진입 시 호출

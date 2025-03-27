@@ -5,7 +5,7 @@
 #include "CKeyManager.h"
 #include "CSceneManager.h"
 #include "CPathManager.h"
-
+#include "CCollisionManager.h"
 
 
 
@@ -18,6 +18,8 @@ CCore::CCore()
 	, m_hDC(nullptr)
 	, m_hBit{}
 	, m_memDC{}
+	, m_arrBrush{}
+	, m_arrPen{}
 {
 }
 
@@ -27,6 +29,13 @@ CCore::~CCore()
 
 	DeleteDC(m_memDC);
 	DeleteObject(m_hBit);
+
+	for (int i = 0; i < (UINT)PEN_TYPE::END; ++i)
+	{
+		DeleteObject(m_arrPen[i]);
+	}
+
+
 }
 
 
@@ -46,14 +55,21 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 	m_hBit = CreateCompatibleBitmap(m_hDC, m_ptResolution.x, m_ptResolution.y);
 	m_memDC = CreateCompatibleDC(m_hDC);
 
+
 	HBITMAP hOldBit = (HBITMAP)SelectObject(m_memDC, m_hBit);
 	DeleteObject(hOldBit);
+
+
+	// 자주 사용 할 펜 및 브러쉬 생성
+	CreateBrushPen();
+
 
 	// Manager 초기화
 	CPathManager::GetInst()->init();
 	CTimeManager::GetInst()->init();
 	CKeyManager::GetInst()->init();
 	CSceneManager::GetInst()->init();
+	CCollisionManager::GetInst()->init();
 
 	return S_OK;
 }
@@ -64,6 +80,10 @@ void CCore::progress()
 	CTimeManager::GetInst()->update();
 	CKeyManager::GetInst()->update();
 	CSceneManager::GetInst()->update();
+	CCollisionManager::GetInst()->update();
+
+
+
 
 	// Rendering
 	// 화면 Clear
@@ -74,6 +94,18 @@ void CCore::progress()
 	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y
 		, m_memDC, 0, 0, SRCCOPY);
 	CTimeManager::GetInst()->render();
+}
+
+void CCore::CreateBrushPen()
+{
+	// hollow brush
+	m_arrBrush[(UINT)BRUSH_TYPE::HOLLOW] = (HBRUSH)GetStockObject(HOLLOW_BRUSH);
+
+	// red pen
+	m_arrPen[(UINT)PEN_TYPE::RED] = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
+	m_arrPen[(UINT)PEN_TYPE::GREEN] = CreatePen(PS_SOLID, 1, RGB(0, 255, 0));
+	m_arrPen[(UINT)PEN_TYPE::BLUE] = CreatePen(PS_SOLID, 1, RGB(0, 0, 255));
+
 }
 
 

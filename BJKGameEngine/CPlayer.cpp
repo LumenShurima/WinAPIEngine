@@ -8,6 +8,7 @@
 #include "CTexture.h"
 #include "CPathManager.h"
 #include "CResourceManager.h"
+#include "CCollider.h"
 
 CPlayer::CPlayer()
 	: m_pTexture(nullptr)
@@ -15,6 +16,9 @@ CPlayer::CPlayer()
 	// Texture 로딩하기
 	m_pTexture = CResourceManager::GetInst()->LoadTexture(L"PlayerTexture", L"texture\\Plane.bmp");
 
+	CreateCollider();
+	GetCollider()->SetOffsetPos(FVector2D(0.f, 12.f));
+	GetCollider()->SetScale(FVector2D(20.f, 40.f));
 }
 
 CPlayer::~CPlayer()
@@ -72,6 +76,9 @@ void CPlayer::render(HDC _dc)
 		, m_pTexture->GetDC()
 		, 0, 0, Width, Height
 		, RGB(255,0,255));
+
+	// 컴포넌트(충돌체, etc....)가 있으면 추가
+	ComponentRender(_dc);
 }
 
 void CPlayer::CreateMissile()

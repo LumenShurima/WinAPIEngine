@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CMonster.h"
 #include "CTimeManager.h"
-
+#include "CCollider.h"
 
 CMonster::CMonster()
 	: m_CenterPos(FVector2D(0.f, 0.f))
@@ -10,6 +10,10 @@ CMonster::CMonster()
 	, m_Dir(1)
 {
 
+	CreateCollider();
+
+	GetCollider()->SetOffsetPos(FVector2D(0.f, 0.f));
+	GetCollider()->SetScale(FVector2D(50.f, 50.f));
 }
 
 CMonster::~CMonster()
