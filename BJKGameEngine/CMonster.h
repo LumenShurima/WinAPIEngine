@@ -11,6 +11,7 @@ private:
 	float m_Speed;
 	float m_Range;
 	int m_Dir;
+	int m_HP;
 	
 
 public:
@@ -19,8 +20,14 @@ public:
 
 	void SetCenterPos(FVector2D _Pos) { m_CenterPos = _Pos; }
 	void SetMoveDistance(float _Range) { m_Range = _Range; }
+
+public:
+	virtual void OnCollisionEnter(CCollider* _pOther);
 public:
 	virtual void update();
+
+private:
+	CLONE(CMonster)
 
 
 	

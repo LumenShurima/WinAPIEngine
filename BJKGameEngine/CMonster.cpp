@@ -8,12 +8,13 @@ CMonster::CMonster()
 	, m_Speed{100.f}
 	, m_Range(50.f)
 	, m_Dir(1)
+	, m_HP(10)
 {
 
 	CreateCollider();
 
 	GetCollider()->SetOffsetPos(FVector2D(0.f, 0.f));
-	GetCollider()->SetScale(FVector2D(50.f, 50.f));
+	GetCollider()->SetScale(FVector2D(40.f, 40.f));
 }
 
 CMonster::~CMonster()
@@ -21,8 +22,11 @@ CMonster::~CMonster()
 
 }
 
+
+
 void CMonster::update()
 {
+	return;
 	FVector2D CurPos = GetPos();
 
 	// 진행 방향으로 신당 Speed 만큼 이동
@@ -37,4 +41,20 @@ void CMonster::update()
 	}
 
 	SetPos(CurPos);
+}
+
+
+void CMonster::OnCollisionEnter(CCollider* _pOther)
+{
+	CObject* Owner = _pOther->GetOwner();
+
+	if (Owner->GetName() == L"Missile_Player")
+	{
+		m_HP -= 1;
+
+		if (m_HP <= 0)
+		{
+			DeleteObject(this);
+		}
+	}
 }

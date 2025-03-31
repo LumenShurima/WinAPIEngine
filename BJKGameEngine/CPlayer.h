@@ -8,6 +8,10 @@ class CPlayer : public CObject
 {
 public:
 	CPlayer();
+	CPlayer(const CPlayer& _origin)
+		: CObject(_origin)
+		, m_pTexture(_origin.m_pTexture)
+	{}
 	~CPlayer();
 
 private:
@@ -19,6 +23,8 @@ public:
 
 private:
 	void CreateMissile();
+
+	CLONE(CPlayer)
 
 };
 

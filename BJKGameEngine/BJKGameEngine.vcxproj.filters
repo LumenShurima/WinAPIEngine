@@ -74,6 +74,18 @@
     <Filter Include="Engine\03.Manger\CollisionManager">
       <UniqueIdentifier>{85198d05-ebab-4cf7-9aa3-8168280eaddf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03.Manger\EventManager">
+      <UniqueIdentifier>{501d43c9-6021-466d-a910-5ea5d21d9348}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Component\Animator">
+      <UniqueIdentifier>{feefa984-02f5-49df-843f-0a10533f73c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Component\Collider">
+      <UniqueIdentifier>{c4379203-50fb-497b-bdad-3342d8450be6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Component\Animator\Animation">
+      <UniqueIdentifier>{a2df1e5a-46c9-49f1-a3a5-594c30bffe6c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="define.h">
@@ -82,13 +94,7 @@
     <ClInclude Include="CCore.h">
       <Filter>Engine\02.Core</Filter>
     </ClInclude>
-    <ClInclude Include="main.h">
-      <Filter>Default</Filter>
-    </ClInclude>
     <ClInclude Include="framework.h">
-      <Filter>Default</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
       <Filter>Default</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
@@ -142,13 +148,32 @@
     <ClInclude Include="CResourceManager.h">
       <Filter>Engine\03.Manger\ResourceManager</Filter>
     </ClInclude>
-    <ClInclude Include="CCollider.h">
-      <Filter>Engine\07.Component</Filter>
-    </ClInclude>
     <ClInclude Include="SelectGDI.h">
       <Filter>Engine\08. Module</Filter>
     </ClInclude>
-    <ClInclude Include="CCollisionManager.h" />
+    <ClInclude Include="CCollisionManager.h">
+      <Filter>Engine\03.Manger\CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CEventManager.h">
+      <Filter>Engine\03.Manger\EventManager</Filter>
+    </ClInclude>
+    <ClInclude Include="func.h">
+      <Filter>Engine\01.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="CScene_Tool.h">
+      <Filter>Engine\05.Scene\Scene_Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="CAnimator.h">
+      <Filter>Engine\07.Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="CCollider.h">
+      <Filter>Engine\07.Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="CAnimation.h">
+      <Filter>Engine\07.Component\Animator\Animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BJKGameEngine.rc">
@@ -166,9 +191,6 @@
   <ItemGroup>
     <ClCompile Include="CCore.cpp">
       <Filter>Engine\02.Core</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Default</Filter>
     </ClCompile>
     <ClCompile Include="CObject.cpp">
       <Filter>Engine\04.Object</Filter>
@@ -212,12 +234,30 @@
     <ClCompile Include="CResourceManager.cpp">
       <Filter>Engine\03.Manger\ResourceManager</Filter>
     </ClCompile>
-    <ClCompile Include="CCollider.cpp">
-      <Filter>Engine\07.Component</Filter>
-    </ClCompile>
     <ClCompile Include="SelectGDI.cpp">
       <Filter>Engine\08. Module</Filter>
     </ClCompile>
-    <ClCompile Include="CCollisionManager.cpp" />
+    <ClCompile Include="CCollisionManager.cpp">
+      <Filter>Engine\03.Manger\CollisionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CEventManager.cpp">
+      <Filter>Engine\03.Manger\EventManager</Filter>
+    </ClCompile>
+    <ClCompile Include="func.cpp">
+      <Filter>Default</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="CScene_Tool.cpp">
+      <Filter>Engine\05.Scene\Scene_Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="CAnimator.cpp">
+      <Filter>Engine\07.Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="CCollider.cpp">
+      <Filter>Engine\07.Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="CAnimation.cpp">
+      <Filter>Engine\07.Component\Animator\Animation</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

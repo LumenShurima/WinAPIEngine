@@ -12,7 +12,7 @@
 								type();\
 								~type();
 
-
+#define CLONE(type) type* Clone() {return new type(*this);}
 #define KEY(key, state) CKeyManager::GetInst()->GetKeyState(key) == state
 #define KEY_Triggered(key) KEY(key, EKEY_STATE::Triggered)
 #define KEY_Started(key) KEY(key, EKEY_STATE::Started)
@@ -24,8 +24,9 @@ enum class GROUP_TYPE
 {
 	DEFAULT,
 	PLAYER,
-	MISSLE,
 	MONSTER,
+	PROJECTILE_PLAYER,
+	PROJECTILE_MONSTER,
 
 
 	END = 32,
@@ -58,4 +59,14 @@ enum class PEN_TYPE
 	GREEN,
 	BLUE,
 	END
+};
+
+enum class EVENT_TYPE
+{
+	CREATE_OBJECT,
+	DELETE_OBJECT,
+	SCENE_CHANGE,
+
+
+	END,
 };

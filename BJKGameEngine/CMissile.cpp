@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "CMissile.h"
 #include "CTimeManager.h"
+#include "CCollider.h"
+
 
 CMissile::CMissile()
 	: m_Theta{ PI }
@@ -8,6 +10,7 @@ CMissile::CMissile()
 {
 	m_Dir.Normalize();
 	CreateCollider();
+	GetCollider()->SetScale(FVector2D(15.f, 15.f));
 }
 
 CMissile::~CMissile()
@@ -34,4 +37,15 @@ void CMissile::render(HDC _dc)
 
 	Ellipse(_dc, (int)(Pos.x - Scale.x / 2.f), (int)(Pos.y - Scale.y / 2.f)
 		, (int)(Pos.x + Scale.x / 2.f), (int)(Pos.y + Scale.y / 2.f));
+
+	ComponentRender(_dc);
+}
+
+void CMissile::OnCollisionEnter(CCollider* _pOther)
+{
+	CObject* Owner = _pOther->GetOwner();
+	if (Owner->GetName() == L"Monster")
+	{
+		DeleteObject(this);
+	}
 }

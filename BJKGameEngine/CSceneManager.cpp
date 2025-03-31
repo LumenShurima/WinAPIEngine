@@ -2,6 +2,8 @@
 #include "CSceneManager.h"
 
 #include "CScene_Start.h"
+#include "CScene_Tool.h"
+#include "CEventManager.h"
 
 CSceneManager::CSceneManager()
 	: m_Scenes{}
@@ -29,9 +31,13 @@ void CSceneManager::init()
 	// Scene 생성
 	m_Scenes[(UINT)SCENE_TYPE::START] = new CScene_Start;
 	m_Scenes[(UINT)SCENE_TYPE::START]->SetName(L"Start Scene");
-	// m_Scenes[(UINT)SCENE_TYPE::TOOL] = new CScene_Tool;
-	// m_Scenes[(UINT)SCENE_TYPE::STAGE_01] = new CScene_Stage01;
-	// m_Scenes[(UINT)SCENE_TYPE::STAGE_02] = new CScene_Stage02;
+
+	m_Scenes[(UINT)SCENE_TYPE::TOOL] = new CScene_Tool;
+	m_Scenes[(UINT)SCENE_TYPE::TOOL]->SetName(L"Tool Scene");
+	
+	
+	//m_Scenes[(UINT)SCENE_TYPE::STAGE_01] = new CScene_Stage01;
+	//m_Scenes[(UINT)SCENE_TYPE::STAGE_02] = new CScene_Stage02;
 
 
 	// 현재 씬 지정
@@ -51,3 +57,13 @@ void CSceneManager::render(HDC _dc)
 {
 	m_pCurScene->render(_dc);
 }
+
+void CSceneManager::ChangeOtherScene(SCENE_TYPE _Scene)
+{
+	m_pCurScene->Exit();
+
+	m_pCurScene = m_Scenes[(UINT)_Scene];
+
+	m_pCurScene->Enter();
+}
+

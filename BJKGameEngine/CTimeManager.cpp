@@ -40,7 +40,12 @@ void CTimeManager::update()
 	
 	m_llPrevCount = m_llCurCount;
 
-	
+
+	// 최대 프레임 제한
+#ifdef _DEBUG
+	if (m_deltaTime > (1. / 60.))
+		m_deltaTime = (1. / 60.);
+#endif
 }
 
 void CTimeManager::render()

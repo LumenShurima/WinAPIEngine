@@ -17,18 +17,19 @@ public:
 	const wstring& GetName() { return m_strName; }
 
 
-	void update();
-	void finalupdate();
-	void render(HDC _dc);
+	virtual void update();
+	virtual void finalupdate();
+	virtual void render(HDC _dc);
 
 	virtual void Enter() = 0;	// 해당 Scene에 진입 시 호출
 	virtual void Exit() = 0;	// 해당 Scene을 나갈 시 호출
 
 public:
-	void AddObject(CObject* _pObj, GROUP_TYPE _eType = GROUP_TYPE::DEFAULT) { m_Objects[(UINT)_eType].push_back(_pObj); }
-
-
-
+	void AddObject(CObject* _pObj, GROUP_TYPE _eType) { m_Objects[(UINT)_eType].push_back(_pObj); }
+	
+	const vector<CObject*>& GetGroupObject(GROUP_TYPE _eType){return m_Objects[(UINT)_eType]; }
+	void DeleteGroup(GROUP_TYPE _objGroup);
+	void DeleteAll();
 public:
 	CScene();
 	virtual ~CScene();

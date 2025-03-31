@@ -19,7 +19,7 @@ void CPathManager::init()
 {
 	GetCurrentDirectory(255, m_szContentPath);
 	
-	int Len = wcslen(m_szContentPath);
+	int Len = (int)wcslen(m_szContentPath);
 
 
 	// 상위폴더로

@@ -6,7 +6,7 @@
 #include "CSceneManager.h"
 #include "CPathManager.h"
 #include "CCollisionManager.h"
-
+#include "CEventManager.h"
 
 
 
@@ -79,7 +79,11 @@ void CCore::progress()
 	// Manager Update
 	CTimeManager::GetInst()->update();
 	CKeyManager::GetInst()->update();
+
+	// Scene Update
 	CSceneManager::GetInst()->update();
+
+	// Collision Check
 	CCollisionManager::GetInst()->update();
 
 
@@ -94,6 +98,9 @@ void CCore::progress()
 	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y
 		, m_memDC, 0, 0, SRCCOPY);
 	CTimeManager::GetInst()->render();
+
+	// Lazy Processing OR Lazy Evaluation
+	CEventManager::GetInst()->update();
 }
 
 void CCore::CreateBrushPen()

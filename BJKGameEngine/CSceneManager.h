@@ -20,5 +20,10 @@ public:
 	CScene* GetCurrentScene() { return m_pCurScene; }
 
 
+private:
+	void ChangeOtherScene(SCENE_TYPE _Scene);
+	friend class CEventManager;
+	
+
 };
 

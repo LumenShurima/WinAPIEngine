@@ -19,6 +19,12 @@ public:
 		m_Dir = _Dir; 
 		m_Dir.Normalize();
 	}
+	
+public:
+	virtual void OnCollisionEnter(CCollider* _pOther);
 
+
+private:
+	CLONE(CMissile)
 };
 
