@@ -18,17 +18,22 @@
 #define KEY_Started(key) KEY(key, EKEY_STATE::Started)
 #define KEY_Completed(key) KEY(key, EKEY_STATE::Completed)
 
+
 #define PI 3.1415926535f
+
+
+#define TILE_SIZE 64
 
 enum class GROUP_TYPE
 {
 	DEFAULT,
+	TILE,
 	PLAYER,
 	MONSTER,
 	PROJECTILE_PLAYER,
 	PROJECTILE_MONSTER,
 
-
+	UI = 31,
 	END = 32,
 };
 

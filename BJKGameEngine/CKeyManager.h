@@ -7,7 +7,7 @@
 
 // 2. 키 입력 이벤트 처리
 // tap, hold, away
-
+#define CurMousePos CKeyManager::GetInst()->GetMousePos()
 
 
 
@@ -52,6 +52,8 @@ enum class EKEY
 	SPACE,
 	ENTER,
 	ESC,
+	LBTN,
+	RBTN,
 
 
 	FinalEND
@@ -69,14 +71,16 @@ class CKeyManager
 	SINGLETON(CKeyManager);
 
 private:
-	vector<FKeyInfo> m_Keys;
-	
+	vector<FKeyInfo>	m_Keys;
+	FVector2D			m_CurMousePos;
+
 public:
 	void init();
 	void update();
 
 public:
 	EKEY_STATE GetKeyState(EKEY _eKey) {return m_Keys[(int)_eKey].eState;}
+	FVector2D GetMousePos() { return m_CurMousePos; }
 };
 
 

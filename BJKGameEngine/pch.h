@@ -6,9 +6,13 @@
 #include <wchar.h>
 #include <math.h>
 #include <assert.h>
+#include <functional>
 
 #pragma comment(lib, "Msimg32.lib")
 
+
+#include <list>
+using std::list;
 
 #include <vector>
 using std::vector;

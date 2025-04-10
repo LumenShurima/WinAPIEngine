@@ -34,6 +34,9 @@ void CMissile::render(HDC _dc)
 {
 	FVector2D Pos = GetPos();
 	FVector2D Scale = GetScale();
+	
+	Pos = CCamera::GetInst()->GetRenderPos(Pos);
+
 
 	Ellipse(_dc, (int)(Pos.x - Scale.x / 2.f), (int)(Pos.y - Scale.y / 2.f)
 		, (int)(Pos.x + Scale.x / 2.f), (int)(Pos.y + Scale.y / 2.f));

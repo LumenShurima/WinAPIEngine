@@ -10,19 +10,17 @@ public:
 	CPlayer();
 	CPlayer(const CPlayer& _origin)
 		: CObject(_origin)
-		, m_pTexture(_origin.m_pTexture)
 	{}
 	~CPlayer();
 
 private:
-	CTexture* m_pTexture;
 
 public:
 	virtual void update();
 	virtual void render(HDC _dc);
+	void CreateMissile();
 
 private:
-	void CreateMissile();
 
 	CLONE(CPlayer)
 

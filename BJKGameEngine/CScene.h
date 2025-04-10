@@ -11,11 +11,13 @@ private:
 	vector<CObject*> m_Objects[(UINT)GROUP_TYPE::END]; // 오브젝트를 저장 및 관리할 벡터를 그룹 개수만큼 선언
 	wstring m_strName; // Scene 이름
 
-
+	UINT			m_TileX;	// 가로 개수
+	UINT			m_TileY;	// 세로 개수
 public:
 	void SetName(const wstring& _strName) { m_strName = _strName; }
 	const wstring& GetName() { return m_strName; }
-
+	UINT GetTileX() { return m_TileX; }
+	UINT GetTileY() { return m_TileY; }
 
 	virtual void update();
 	virtual void finalupdate();
@@ -30,6 +32,12 @@ public:
 	const vector<CObject*>& GetGroupObject(GROUP_TYPE _eType){return m_Objects[(UINT)_eType]; }
 	void DeleteGroup(GROUP_TYPE _objGroup);
 	void DeleteAll();
+
+	void CreateTile(UINT _xCount, UINT _yCount);
+	void LoadTile(const wstring& _strRelativePath);
+	// vector<CObject*>& GetUIGroup() { return m_Objects[(UINT)GROUP_TYPE::UI]; }
+
+
 public:
 	CScene();
 	virtual ~CScene();

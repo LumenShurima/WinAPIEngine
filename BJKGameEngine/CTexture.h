@@ -5,9 +5,9 @@
 class CTexture :
     public CResource
 {
-public:
+private:
     CTexture();
-    ~CTexture();
+    virtual ~CTexture();
 public:
     UINT Width() { return m_bitInfo.bmWidth; }
     UINT Height() { return m_bitInfo.bmHeight; }

@@ -47,11 +47,14 @@ void CCollider::render(HDC _dc)
 	SelectGDI temp1(_dc, ePen);
 	SelectGDI temp2(_dc, BRUSH_TYPE::HOLLOW);
 	
+	FVector2D RenderPos = CCamera::GetInst()->GetRenderPos(m_FinalPos);
+
+
 	Rectangle(_dc
-		, (int)(m_FinalPos.x - m_Scale.x / 2.f)
-		, (int)(m_FinalPos.y - m_Scale.y / 2.f)
-		, (int)(m_FinalPos.x + m_Scale.x / 2.f)
-		, (int)(m_FinalPos.y + m_Scale.y / 2.f));
+		, (int)(RenderPos.x - m_Scale.x / 2.f)
+		, (int)(RenderPos.y - m_Scale.y / 2.f)
+		, (int)(RenderPos.x + m_Scale.x / 2.f)
+		, (int)(RenderPos.y + m_Scale.y / 2.f));
 
 }
 

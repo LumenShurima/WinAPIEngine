@@ -1,13 +1,13 @@
 #pragma once
 
-
+class CResource;
 class CTexture;
 
 class CResourceManager
 {
 	SINGLETON(CResourceManager);
 private:
-	map<wstring, CTexture*> m_mapTexture;
+	map<wstring, CResource*> m_mapTexture;
 
 
 

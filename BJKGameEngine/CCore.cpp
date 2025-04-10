@@ -7,7 +7,8 @@
 #include "CPathManager.h"
 #include "CCollisionManager.h"
 #include "CEventManager.h"
-
+#include "CCamera.h"
+#include "CUIManager.h"
 
 
 
@@ -79,12 +80,16 @@ void CCore::progress()
 	// Manager Update
 	CTimeManager::GetInst()->update();
 	CKeyManager::GetInst()->update();
+	CCamera::GetInst()->update();
 
 	// Scene Update
 	CSceneManager::GetInst()->update();
 
 	// Collision Check
 	CCollisionManager::GetInst()->update();
+
+	// UI Event Check
+	CUIManager::GetInst()->update();
 
 
 

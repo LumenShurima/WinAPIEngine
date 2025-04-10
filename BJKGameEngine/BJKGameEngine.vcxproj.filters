@@ -86,6 +86,24 @@
     <Filter Include="Engine\07.Component\Animator\Animation">
       <UniqueIdentifier>{a2df1e5a-46c9-49f1-a3a5-594c30bffe6c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03.Manger\CameraManager">
+      <UniqueIdentifier>{7f438eb9-ae03-4b2f-93c7-744323232bb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04.Object\Tile">
+      <UniqueIdentifier>{02ca2b21-40c4-42f2-a6df-e2ed83450b74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04.Object\UI">
+      <UniqueIdentifier>{cd6893f3-9730-4b5e-a90d-21fa80f867e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03.Manger\UIManager">
+      <UniqueIdentifier>{4aeee0ed-cc70-466e-b0e3-d345495a8132}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04.Object\UI\Panel">
+      <UniqueIdentifier>{3b6bb803-1251-44e2-bba7-f1c440d9a666}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04.Object\UI\BtnUI">
+      <UniqueIdentifier>{b3a431ca-9f68-4668-9ec3-903169e3b8c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="define.h">
@@ -174,6 +192,27 @@
     <ClInclude Include="CAnimation.h">
       <Filter>Engine\07.Component\Animator\Animation</Filter>
     </ClInclude>
+    <ClInclude Include="CCamera.h">
+      <Filter>Engine\03.Manger\CameraManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CTile.h">
+      <Filter>Engine\04.Object\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="global.h">
+      <Filter>Engine\01.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CUI.h">
+      <Filter>Engine\04.Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CUIManager.h">
+      <Filter>Engine\03.Manger\UIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CPanelUI.h">
+      <Filter>Engine\04.Object\UI\Panel</Filter>
+    </ClInclude>
+    <ClInclude Include="CBtnUI.h">
+      <Filter>Engine\04.Object\UI\BtnUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BJKGameEngine.rc">
@@ -258,6 +297,24 @@
     </ClCompile>
     <ClCompile Include="CAnimation.cpp">
       <Filter>Engine\07.Component\Animator\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="CCamera.cpp">
+      <Filter>Engine\03.Manger\CameraManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CTile.cpp">
+      <Filter>Engine\04.Object\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="CUI.cpp">
+      <Filter>Engine\04.Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CUIManager.cpp">
+      <Filter>Engine\03.Manger\UIManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CPanelUI.cpp">
+      <Filter>Engine\04.Object\UI\Panel</Filter>
+    </ClCompile>
+    <ClCompile Include="CBtnUI.cpp">
+      <Filter>Engine\04.Object\UI\BtnUI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

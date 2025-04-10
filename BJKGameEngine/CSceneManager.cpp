@@ -5,6 +5,7 @@
 #include "CScene_Tool.h"
 #include "CEventManager.h"
 
+
 CSceneManager::CSceneManager()
 	: m_Scenes{}
 	, m_pCurScene(nullptr)
@@ -41,7 +42,7 @@ void CSceneManager::init()
 
 
 	// ÇöÀç ¾À ÁöÁ¤
-	m_pCurScene = m_Scenes[(UINT)SCENE_TYPE::START];
+	m_pCurScene = m_Scenes[(UINT)SCENE_TYPE::TOOL];
 	m_pCurScene->Enter();
 }
 
@@ -60,6 +61,7 @@ void CSceneManager::render(HDC _dc)
 
 void CSceneManager::ChangeOtherScene(SCENE_TYPE _Scene)
 {
+	
 	m_pCurScene->Exit();
 
 	m_pCurScene = m_Scenes[(UINT)_Scene];

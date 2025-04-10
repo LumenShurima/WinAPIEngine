@@ -10,10 +10,9 @@
 #include "CResourceManager.h"
 #include "CCollider.h"
 #include "CAnimator.h"
-
+#include "CAnimation.h"
 
 CPlayer::CPlayer()
-	: m_pTexture(nullptr)
 {
 	// Texture 로딩하기
 	// m_pTexture = CResourceManager::GetInst()->LoadTexture(L"PlayerTexture", L"texture\\Plane.bmp");
@@ -24,12 +23,25 @@ CPlayer::CPlayer()
 
 
 	// Texture 로딩하기
-	m_pTexture = CResourceManager::GetInst()->LoadTexture(L"PlayerTexture", L"texture\\link.bmp");
+	CTexture* pTexture = CResourceManager::GetInst()->LoadTexture(L"PlayerTexture", L"texture\\link.bmp");
 	CreateAnimator();
-	GetAnimator()->CreateAnimation(m_pTexture
+	GetAnimator()->CreateAnimation(L"WALK_DOWN"
+		, pTexture
 		, FVector2D(0.f, 260.f)
 		, FVector2D(60.f, 65.f)
-		, FVector2D(60.f, 0.f), 10);
+		, FVector2D(60.f, 0.f)
+		, 0.09f, 10);
+	GetAnimator()->Play(L"WALK_DOWN", true);
+
+	CAnimation* pAnim = GetAnimator()->FindAnimation(L"WALK_DOWN");
+
+	for (int i = 0; i < pAnim->GetMaxFrame(); ++i)
+	{
+		pAnim->GetFrame(i).Offset = FVector2D(0.f, -20.f);
+	}
+
+
+
 }
 
 CPlayer::~CPlayer()
@@ -63,31 +75,13 @@ void CPlayer::update()
 	}
 
 	SetPos(Pos);
+
+	GetAnimator()->update();
 }
 
 void CPlayer::render(HDC _dc)
 {
-	int Width = (int)m_pTexture->Width();
-	int Height = (int)m_pTexture->Height();
-	// 188 x 268
 	
-	FVector2D Pos = GetPos();
-
-	/*BitBlt(_dc
-		, int(Pos.x - (float)(Width / 2))
-		, int(Pos.y - (float)(Height / 2))
-		, Width, Height
-		, m_pTexture->GetDC()
-		, 0,0 ,SRCCOPY);*/
-
-	TransparentBlt(_dc
-		, int(Pos.x - (float)(Width / 2))
-		, int(Pos.y - (float)(Height / 2))
-		, Width, Height
-		, m_pTexture->GetDC()
-		, 0, 0, Width, Height
-		, RGB(255,0,255));
-
 	// 컴포넌트(충돌체, etc....)가 있으면 추가
 	ComponentRender(_dc);
 }

@@ -35,7 +35,8 @@ int g_arrVK[(int)EKEY::FinalEND] =
 	 VK_SPACE, 
 	 VK_RETURN,	// ENTER 
 	 VK_ESCAPE, 
-
+	 VK_LBUTTON,
+	 VK_RBUTTON,
 
 	 // FinalEND
 };
@@ -108,7 +109,18 @@ void CKeyManager::update()
 			}
 
 		}
+		
+		// Mouse 위치 계산
+		POINT ptPos = {};
+		GetCursorPos(&ptPos);
+		HWND handle = CCore::GetInst()->GetMainHwnd();
+		ScreenToClient(handle, &ptPos);
+
+		m_CurMousePos = FVector2D((float)ptPos.x, (float)ptPos.y);
+
 	}
+
+	// 윈도우 포커싱 해제상태
 	else
 	{
 		for (int i = 0; i < (int)EKEY::FinalEND; ++i)

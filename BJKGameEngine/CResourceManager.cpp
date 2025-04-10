@@ -2,6 +2,7 @@
 #include "CResourceManager.h"
 
 #include "CTexture.h"
+#include "CResource.h"
 #include "CPathManager.h"
 
 CResourceManager::CResourceManager()
@@ -37,11 +38,11 @@ CTexture* CResourceManager::LoadTexture(const wstring& _strKey, const wstring& _
 
 CTexture* CResourceManager::FindTexture(const wstring& _strKey)
 {
-    map<wstring, CTexture*>::iterator iter = m_mapTexture.find(_strKey);
+    map<wstring, CResource*>::iterator iter = m_mapTexture.find(_strKey);
     if (iter == m_mapTexture.end())
     {
         return nullptr;
     }
     
-    return iter->second;
+    return (CTexture*)iter->second;
 }
